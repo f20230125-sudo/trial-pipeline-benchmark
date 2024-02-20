@@ -1,0 +1,160 @@
+raw,iso3,name,is_gcc,is_mena
+Albania,ALB,Albania,false,false
+Algeria,DZA,Algeria,false,true
+American Samoa,ASM,American Samoa,false,false
+Andorra,AND,Andorra,false,false
+Angola,AGO,Angola,false,false
+Argentina,ARG,Argentina,false,false
+Armenia,ARM,Armenia,false,false
+Australia,AUS,Australia,false,false
+Austria,AUT,Austria,false,false
+Bahrain,BHR,Bahrain,true,true
+Bangladesh,BGD,Bangladesh,false,false
+Barbados,BRB,Barbados,false,false
+Belarus,BLR,Belarus,false,false
+Belgium,BEL,Belgium,false,false
+Belize,BLZ,Belize,false,false
+Benin,BEN,Benin,false,false
+Bermuda,BMU,Bermuda,false,false
+Bosnia and Herzegovina,BIH,Bosnia and Herzegovina,false,false
+Botswana,BWA,Botswana,false,false
+Brazil,BRA,Brazil,false,false
+Bulgaria,BGR,Bulgaria,false,false
+Burkina Faso,BFA,Burkina Faso,false,false
+Cambodia,KHM,Cambodia,false,false
+Cameroon,CMR,Cameroon,false,false
+Canada,CAN,Canada,false,false
+Chile,CHL,Chile,false,false
+China,CHN,China,false,false
+Colombia,COL,Colombia,false,false
+Costa Rica,CRI,Costa Rica,false,false
+Croatia,HRV,Croatia,false,false
+Cuba,CUB,Cuba,false,false
+Cyprus,CYP,Cyprus,false,false
+Czechia,CZE,Czechia,false,false
+Côte d’Ivoire,CIV,Côte d'Ivoire,false,false
+Democratic Republic of the Congo,COD,"Congo, The Democratic Republic of the",false,false
+Denmark,DNK,Denmark,false,false
+Dominican Republic,DOM,Dominican Republic,false,false
+Ecuador,ECU,Ecuador,false,false
+Egypt,EGY,Egypt,false,true
+El Salvador,SLV,El Salvador,false,false
+Estonia,EST,Estonia,false,false
+Eswatini,SWZ,Eswatini,false,false
+Ethiopia,ETH,Ethiopia,false,false
+Federal Republic of Yugoslavia,YUG,Federal Republic of Yugoslavia,false,false
+Finland,FIN,Finland,false,false
+France,FRA,France,false,false
+Gabon,GAB,Gabon,false,false
+Georgia,GEO,Georgia,false,false
+Germany,DEU,Germany,false,false
+Ghana,GHA,Ghana,false,false
+Greece,GRC,Greece,false,false
+Grenada,GRD,Grenada,false,false
+Guadeloupe,GLP,Guadeloupe,false,false
+Guam,GUM,Guam,false,false
+Guatemala,GTM,Guatemala,false,false
+Guinea,GIN,Guinea,false,false
+Haiti,HTI,Haiti,false,false
+Honduras,HND,Honduras,false,false
+Hong Kong,HKG,Hong Kong,false,false
+Hungary,HUN,Hungary,false,false
+Iceland,ISL,Iceland,false,false
+India,IND,India,false,false
+Indonesia,IDN,Indonesia,false,false
+Iran,IRN,"Iran, Islamic Republic of",false,true
+Iraq,IRQ,Iraq,false,true
+Ireland,IRL,Ireland,false,false
+Israel,ISR,Israel,false,true
+Italy,ITA,Italy,false,false
+Jamaica,JAM,Jamaica,false,false
+Japan,JPN,Japan,false,false
+Jordan,JOR,Jordan,false,true
+Kazakhstan,KAZ,Kazakhstan,false,false
+Kenya,KEN,Kenya,false,false
+Kuwait,KWT,Kuwait,true,true
+Latvia,LVA,Latvia,false,false
+Lebanon,LBN,Lebanon,false,true
+Liberia,LBR,Liberia,false,false
+Libya,LBY,Libya,false,true
+Lithuania,LTU,Lithuania,false,false
+Luxembourg,LUX,Luxembourg,false,false
+Macau,MAC,Macao,false,false
+Madagascar,MDG,Madagascar,false,false
+Malawi,MWI,Malawi,false,false
+Malaysia,MYS,Malaysia,false,false
+Mali,MLI,Mali,false,false
+Malta,MLT,Malta,false,false
+Martinique,MTQ,Martinique,false,false
+Mauritius,MUS,Mauritius,false,false
+Mexico,MEX,Mexico,false,false
+Moldova,MDA,"Moldova, Republic of",false,false
+Monaco,MCO,Monaco,false,false
+Montenegro,MNE,Montenegro,false,false
+Morocco,MAR,Morocco,false,true
+Mozambique,MOZ,Mozambique,false,false
+Nauru,NRU,Nauru,false,false
+Nepal,NPL,Nepal,false,false
+Netherlands,NLD,Netherlands,false,false
+New Zealand,NZL,New Zealand,false,false
+Nicaragua,NIC,Nicaragua,false,false
+Niger,NER,Niger,false,false
+Nigeria,NGA,Nigeria,false,false
+North Korea,PRK,"Korea, Democratic People's Republic of",false,false
+North Macedonia,MKD,North Macedonia,false,false
+Northern Mariana Islands,MNP,Northern Mariana Islands,false,false
+Norway,NOR,Norway,false,false
+Oman,OMN,Oman,true,true
+Pakistan,PAK,Pakistan,false,false
+Panama,PAN,Panama,false,false
+Paraguay,PRY,Paraguay,false,false
+Peru,PER,Peru,false,false
+Philippines,PHL,Philippines,false,false
+Poland,POL,Poland,false,false
+Portugal,PRT,Portugal,false,false
+Puerto Rico,PRI,Puerto Rico,false,false
+Qatar,QAT,Qatar,true,true
+Republic of the Congo,COG,Congo,false,false
+Reunion,REU,Réunion,false,false
+Romania,ROU,Romania,false,false
+Russia,RUS,Russian Federation,false,false
+Rwanda,RWA,Rwanda,false,false
+San Marino,SMR,San Marino,false,false
+Saudi Arabia,SAU,Saudi Arabia,true,true
+Senegal,SEN,Senegal,false,false
+Serbia,SRB,Serbia,false,false
+Serbia and Montenegro,SCG,Serbia and Montenegro,false,false
+Sierra Leone,SLE,Sierra Leone,false,false
+Singapore,SGP,Singapore,false,false
+Slovakia,SVK,Slovakia,false,false
+Slovenia,SVN,Slovenia,false,false
+South Africa,ZAF,South Africa,false,false
+South Korea,KOR,"Korea, Republic of",false,false
+Spain,ESP,Spain,false,false
+Sri Lanka,LKA,Sri Lanka,false,false
+Suriname,SUR,Suriname,false,false
+Sweden,SWE,Sweden,false,false
+Switzerland,CHE,Switzerland,false,false
+Syria,SYR,Syrian Arab Republic,false,true
+Taiwan,TWN,"Taiwan, Province of China",false,false
+Tajikistan,TJK,Tajikistan,false,false
+Tanzania,TZA,"Tanzania, United Republic of",false,false
+Thailand,THA,Thailand,false,false
+The Bahamas,BHS,Bahamas,false,false
+The Gambia,GMB,Gambia,false,false
+Togo,TGO,Togo,false,false
+Tunisia,TUN,Tunisia,false,true
+Turkey (Türkiye),TUR,Türkiye,false,false
+Uganda,UGA,Uganda,false,false
+Ukraine,UKR,Ukraine,false,false
+United Arab Emirates,ARE,United Arab Emirates,true,true
+United Kingdom,GBR,United Kingdom,false,false
+United States,USA,United States,false,false
+United States Minor Outlying Islands,UMI,United States Minor Outlying Islands,false,false
+Uruguay,URY,Uruguay,false,false
+Uzbekistan,UZB,Uzbekistan,false,false
+Venezuela,VEN,"Venezuela, Bolivarian Republic of",false,false
+Vietnam,VNM,Viet Nam,false,false
+Virgin Islands,VIR,"Virgin Islands, U.S.",false,false
+Zambia,ZMB,Zambia,false,false
+Zimbabwe,ZWE,Zimbabwe,false,false
