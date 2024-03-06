@@ -110,6 +110,58 @@ def test_site_counts_add_up(con):
                     "(select 1 from study_country c where c.nct_id = study.nct_id and c.is_gcc)") == 0
 
 
+def test_area_coverage_meets_the_target(con):
+    active = one(con, "select count(*) from study where is_pipeline and is_active")
+    classified = one(con, "select count(*) from study where is_pipeline and is_active and area <> 'Unclassified'")
+    assert classified / active >= 0.95
+    whole = one(con, "select count(*) from study where is_pipeline and area <> 'Unclassified'") / one(
+        con, "select count(*) from study where is_pipeline")
+    assert whole >= 0.93
+
+
+def test_areas_are_the_seventeen_shared_with_rx_market_pulse(con):
+    from tp import areas
+    assert [r[0] for r in con.execute("select area from dim_area order by sort_order").fetchall()] == areas.AREAS
+    used = {r[0] for r in con.execute("select distinct area from study").fetchall()}
+    assert used <= set(areas.AREAS)
+    assert one(con, "select count(*) from study where area_source = 'none' and area <> 'Unclassified'") == 0
+    assert one(con, "select count(*) from study where area = 'Unclassified' and area_source <> 'none'") == 0
+
+
+def test_area_cascade_order_is_recorded(con):
+    sources = {r[0] for r in con.execute("select distinct area_source from study").fetchall()}
+    assert sources <= {"override", "text", "mesh", "molecule", "none"}
+    # text must win whenever it matched: a study whose area came from MeSH had no text match
+    assert one(con, "select count(*) from study s join study_area_steps a using (nct_id) "
+                    "where s.area_source = 'mesh' and a.text_area is not null") == 0
+
+
+def test_text_and_mesh_rarely_disagree(con):
+    pipeline = one(con, "select count(*) from study where is_pipeline")
+    assert one(con, "select count(*) from study where is_pipeline and area_conflict") / pipeline < 0.03
+
+
+def test_no_comparator_is_counted_as_a_molecule(con):
+    from tp import molecules
+    bad = [m for (m,) in con.execute("select distinct molecule from study_molecule").fetchall()
+           if molecules.is_comparator(m)]
+    assert bad == []
+    assert one(con, "select count(*) from study_molecule where molecule is null or trim(molecule) = ''") == 0
+
+
+def test_every_merck_family_is_linked_to_msd_trials_only(con):
+    assert one(con, "select count(distinct family) from study_rx_link") >= 10
+    assert one(con, "select count(*) from study_rx_link l join study s using (nct_id) where s.grp <> 'MSD'") == 0
+    assert one(con, "select count(*) from rx_family") == 14
+
+
+def test_pembrolizumab_is_a_large_share_of_the_msd_pipeline(con):
+    total = one(con, "select count(*) from study where grp = 'MSD' and is_pipeline and is_active")
+    pembro = one(con, "select count(distinct l.nct_id) from study_rx_link l join study s using (nct_id) "
+                      "where l.franchise = 'pembrolizumab' and s.is_pipeline and s.is_active")
+    assert 0.25 <= pembro / total <= 0.50
+
+
 def test_stop_theme_is_set_only_for_stopped_studies(con):
     assert one(con, "select count(*) from study where stop_theme is not null and "
                     "status not in ('TERMINATED', 'WITHDRAWN', 'SUSPENDED')") == 0
