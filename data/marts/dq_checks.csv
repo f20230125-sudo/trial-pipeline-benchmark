@@ -1,0 +1,26 @@
+id,dimension,name,result,rule,status,studies,note
+C01,Completeness,"Study ID, lead sponsor, status and type are present on every study",0 studies missing one,0,pass,0,
+C02,Completeness,Pipeline studies with a start date,99.3% (171 without),>= 98%,pass,171,"Older records and withdrawn studies often have none. Studies without a start date are left out of start-year counts, never given a made-up year."
+C03,Completeness,Active pipeline studies with a primary completion date,100.0% (0 without),>= 99%,pass,0,Without a date a study cannot appear in the readouts-due view.
+C04,Completeness,Pipeline studies with a registry MeSH condition term,81.5%,reported,info,4577,"The rest are mostly healthy-volunteer Phase 1 studies. Area comes from the condition text, then MeSH, then the molecule (see C15)."
+C05,Validity,Study IDs look like NCT plus 8 digits,0 do not,0 (any are quarantined),pass,0,
+C06,Validity,Every date the registry gives can be read,0 cannot,0,pass,0,"Dates come as a day, a month or a year; a month is stored as the first of the month and flagged."
+C07,Validity,Start is not after primary completion when both are ACTUAL,0 studies,0,pass,0,"Kept and flagged, left out of timing measures if any appear."
+C08,Validity,Status and phase are values the model knows,"0 unknown statuses, 0 unknown phases",0,pass,0,
+C09,Validity,"Pipeline enrollment is between 0 and 100,000",0 outside,0,pass,0,"98 studies outside the pipeline exceed 100,000: observational database studies (one covers 188 million people). They are real, not errors, and are not drug-development studies."
+C10,Uniqueness,One row per study,0 duplicates,0,pass,0,The same study is found by several searches (Merck and MSD); it is kept once.
+C11,Uniqueness,One row per study and country,0 duplicates,0,pass,0,
+C12,Reconciliation,Studies loaded per search equal the total the API announced,44 of 44 searches match,every search equal,pass,0,"37,564 study rows over 44 searches; API data as of 2026-10-14T09:00:05 (unchanged at the end of the download)."
+C13,Reconciliation,Every distinct study fetched is in scope or quarantined with a reason,"36,612 fetched = 33,219 in scope + 3,393 quarantined",difference 0,pass,0,Nothing is dropped silently.
+C14,Reconciliation,MSD study count equals a fresh count from the API,"2,189 in the warehouse vs 2,189 from the API (data date 2026-10-14)",equal on the same data date,pass,0,"Studies whose lead name contains 'Merck Sharp & Dohme', including ArQule's. "
+C15,Coverage,Active pipeline studies assigned a therapeutic area,97.0% (72 Unclassified),>= 95%,pass,72,"Text first, then MeSH, then the molecule's usual area. What no step can place stays Unclassified, never spread across other areas."
+C16,Coverage,Active pipeline studies with a molecule key,100.0%,>= 95%,pass,1,"Placebo, saline, standard of care and similar comparators are not counted as molecules."
+C17,Coverage,Merck products in Rx Market Pulse with at least one MSD study,14 of 14,reported,info,0,"All 14 families match by molecule name, MK development code or brand name."
+C18,Coverage,Condition text and registry MeSH terms agree on the area,"391 of 24,692 pipeline studies disagree (1.6%)",< 3%,pass,391,"The registry's MeSH matching is automatic: a lung-cancer study that mentions PD-L1 is also tagged with a Parkinson disease term. Text wins, so those disagreements do not change the area."
+C19,Coverage,Stopped pipeline studies whose reason fits a theme,"64.7% (1,136 are 'Not stated' or 'Other')",reported,info,1136,"The reason is free text and often reads 'see detailed description'. It is mapped by rules, so treat the themes as indicative."
+C20,Harmonisation,No sponsor name that mentions a company falls through the rules,"1,304 distinct names checked, 0 unresolved",0,pass,0,"The search is full-text, so names such as 'University of Bristol' come back for 'Bristol'. Each is set aside by an explicit rule; a name that mentions a company and matches no rule is a failure."
+C21,Harmonisation,Merck KGaA is never counted as MSD,0 in the MSD group; 348 Merck KGaA studies set aside,0,pass,0,"Same name, different company: Merck KGaA of Darmstadt owns the name outside the US and Canada."
+C22,Harmonisation,Studies MSD gains from the roll-up of acquired companies,"267 of 2,433 (11.0%)",reported,info,267,"Cubist, Acceleron, Verona, Prometheus, ArQule and others, under their current owner as of October 2026. Divested or spun-off units (Organon, Alcon, Sandoz) are excluded, not reassigned."
+C23,Harmonisation,Every country spelling maps to an ISO code,0 unmapped (67 sites list no country),0,pass,0,"Spellings such as 'Turkey (Türkiye)' and 'Korea, Republic of' are mapped in data/ref/countries.csv."
+C24,Timeliness,Age of the data snapshot at build time,1 days (API data as of 2026-10-14),<= 7 days,pass,,The snapshot is frozen on purpose so every number on the site and the CV agree.
+C25,Timeliness,Active studies verified in the last 12 months,"2,326 of 2,416; 67 are overdue (estimated primary completion already passed)",reported,info,157,An overdue study still says it will finish in a month that has gone: the forecast was not updated.
