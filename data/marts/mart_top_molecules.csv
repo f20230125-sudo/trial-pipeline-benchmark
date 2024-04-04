@@ -1,0 +1,61 @@
+sort_order,grp,rank,molecule,studies,studies_p23,share_pct
+1,MSD,1,pembrolizumab,71,201,35.3
+1,MSD,2,sacituzumab tirumotecan,29,201,14.4
+1,MSD,3,belzutifan,18,201,9.0
+1,MSD,4,patritumab deruxtecan,10,201,5.0
+1,MSD,5,tulisokibart,10,201,5.0
+2,AbbVie,1,upadacitinib,17,125,13.6
+2,AbbVie,2,risankizumab,13,125,10.4
+2,AbbVie,3,telisotuzumab adizutecan,13,125,10.4
+2,AbbVie,4,venetoclax,12,125,9.6
+2,AbbVie,5,bevacizumab,8,125,6.4
+3,AstraZeneca,1,durvalumab,63,324,19.4
+3,AstraZeneca,2,rilvegostomig,22,324,6.8
+3,AstraZeneca,3,acalabrutinib,20,324,6.2
+3,AstraZeneca,4,osimertinib,19,324,5.9
+3,AstraZeneca,5,trastuzumab deruxtecan,18,324,5.6
+4,BMS,1,nivolumab,19,138,13.8
+4,BMS,2,karxt,16,138,11.6
+4,BMS,3,pumitamig,13,138,9.4
+4,BMS,4,xanomeline,12,138,8.7
+4,BMS,5,deucravacitinib,11,138,8.0
+5,GSK,1,dostarlimab,19,141,13.5
+5,GSK,2,belantamab mafodotin,17,141,12.1
+5,GSK,3,bortezomib,8,141,5.7
+5,GSK,4,depemokimab,8,141,5.7
+5,GSK,5,gsk5784283,7,141,5.0
+6,J&J,1,amivantamab,17,136,12.5
+6,J&J,2,guselkumab,14,136,10.3
+6,J&J,3,nipocalimab,10,136,7.4
+6,J&J,4,bortezomib,9,136,6.6
+6,J&J,5,daratumumab,9,136,6.6
+7,Lilly,1,orforglipron,17,148,11.5
+7,Lilly,2,abemaciclib,15,148,10.1
+7,Lilly,3,tirzepatide,13,148,8.8
+7,Lilly,4,mirikizumab,10,148,6.8
+7,Lilly,5,retatrutide,9,148,6.1
+8,Novartis,1,remibrutinib,21,189,11.1
+8,Novartis,2,ianalumab,18,189,9.5
+8,Novartis,3,iptacopan,13,189,6.9
+8,Novartis,4,alpelisib,10,189,5.3
+8,Novartis,5,aln-pcs,7,189,3.7
+9,Novo Nordisk,1,semaglutide,15,57,26.3
+9,Novo Nordisk,2,nnc0487-0111,10,57,17.5
+9,Novo Nordisk,3,cagrilintide,7,57,12.3
+9,Novo Nordisk,4,zenagamtide,5,57,8.8
+9,Novo Nordisk,5,cagrisema,4,57,7.0
+10,Pfizer,1,pf-08634404,11,135,8.1
+10,Pfizer,2,pembrolizumab,9,135,6.7
+10,Pfizer,3,enzalutamide,7,135,5.2
+10,Pfizer,4,tucatinib,7,135,5.2
+10,Pfizer,5,rimegepant sulfate,6,135,4.4
+11,Roche,1,atezolizumab,24,171,14.0
+11,Roche,2,tocilizumab,16,171,9.4
+11,Roche,3,inavolisib,14,171,8.2
+11,Roche,4,giredestrant,13,171,7.6
+11,Roche,5,afimkibart,12,171,7.0
+12,Sanofi,1,isatuximab,7,109,6.4
+12,Sanofi,2,rilzabrutinib,7,109,6.4
+12,Sanofi,3,frexalimab,6,109,5.5
+12,Sanofi,4,lunsekimig,6,109,5.5
+12,Sanofi,5,amlitelimab,5,109,4.6

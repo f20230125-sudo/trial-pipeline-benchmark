@@ -1,0 +1,73 @@
+sort_order,grp,phase,phase_rank,studies
+1,MSD,Early Phase 1,0,0
+1,MSD,Phase 1,1,37
+1,MSD,Phase 1/2,2,37
+1,MSD,Phase 2,3,58
+1,MSD,Phase 2/3,4,7
+1,MSD,Phase 3,5,99
+2,AbbVie,Early Phase 1,0,0
+2,AbbVie,Phase 1,1,53
+2,AbbVie,Phase 1/2,2,10
+2,AbbVie,Phase 2,3,49
+2,AbbVie,Phase 2/3,4,10
+2,AbbVie,Phase 3,5,56
+3,AstraZeneca,Early Phase 1,0,0
+3,AstraZeneca,Phase 1,1,63
+3,AstraZeneca,Phase 1/2,2,52
+3,AstraZeneca,Phase 2,3,75
+3,AstraZeneca,Phase 2/3,4,2
+3,AstraZeneca,Phase 3,5,195
+4,BMS,Early Phase 1,0,0
+4,BMS,Phase 1,1,37
+4,BMS,Phase 1/2,2,29
+4,BMS,Phase 2,3,27
+4,BMS,Phase 2/3,4,12
+4,BMS,Phase 3,5,70
+5,GSK,Early Phase 1,0,0
+5,GSK,Phase 1,1,50
+5,GSK,Phase 1/2,2,24
+5,GSK,Phase 2,3,40
+5,GSK,Phase 2/3,4,3
+5,GSK,Phase 3,5,74
+6,J&J,Early Phase 1,0,0
+6,J&J,Phase 1,1,47
+6,J&J,Phase 1/2,2,12
+6,J&J,Phase 2,3,35
+6,J&J,Phase 2/3,4,7
+6,J&J,Phase 3,5,82
+7,Lilly,Early Phase 1,0,0
+7,Lilly,Phase 1,1,71
+7,Lilly,Phase 1/2,2,5
+7,Lilly,Phase 2,3,45
+7,Lilly,Phase 2/3,4,1
+7,Lilly,Phase 3,5,97
+8,Novartis,Early Phase 1,0,0
+8,Novartis,Phase 1,1,42
+8,Novartis,Phase 1/2,2,26
+8,Novartis,Phase 2,3,71
+8,Novartis,Phase 2/3,4,2
+8,Novartis,Phase 3,5,90
+9,Novo Nordisk,Early Phase 1,0,0
+9,Novo Nordisk,Phase 1,1,40
+9,Novo Nordisk,Phase 1/2,2,0
+9,Novo Nordisk,Phase 2,3,11
+9,Novo Nordisk,Phase 2/3,4,0
+9,Novo Nordisk,Phase 3,5,46
+10,Pfizer,Early Phase 1,0,0
+10,Pfizer,Phase 1,1,42
+10,Pfizer,Phase 1/2,2,12
+10,Pfizer,Phase 2,3,33
+10,Pfizer,Phase 2/3,4,5
+10,Pfizer,Phase 3,5,85
+11,Roche,Early Phase 1,0,0
+11,Roche,Phase 1,1,49
+11,Roche,Phase 1/2,2,27
+11,Roche,Phase 2,3,52
+11,Roche,Phase 2/3,4,4
+11,Roche,Phase 3,5,88
+12,Sanofi,Early Phase 1,0,0
+12,Sanofi,Phase 1,1,11
+12,Sanofi,Phase 1/2,2,15
+12,Sanofi,Phase 2,3,40
+12,Sanofi,Phase 2/3,4,2
+12,Sanofi,Phase 3,5,52

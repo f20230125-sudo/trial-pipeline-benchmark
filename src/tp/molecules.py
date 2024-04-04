@@ -8,7 +8,11 @@ brand name equals a generic name; that is what the registry's MeSH terms are for
 
 from __future__ import annotations
 
+import csv
 import re
+from pathlib import Path
+
+from . import sources as S
 
 _COMPARATOR = re.compile(
     r"\b(placebos?|sham|saline|standard of care|usual care|best supportive care|supportive care|no treatment|"
@@ -32,6 +36,16 @@ _FORM = re.compile(
     r"every \d+ weeks?|q\d+w|q\d+h|bid|qd|tid|and|or|plus|with|in combination)\b",
     re.IGNORECASE,
 )
+
+
+def load_aliases(path: Path = S.REF / "molecule_aliases.csv") -> dict[str, str]:
+    """Brand names and development codes -> the one name used for the molecule (data/ref/molecule_aliases.csv)."""
+    with path.open(encoding="utf-8", newline="") as fh:
+        return {r["alias"].strip().lower(): r["molecule"].strip().lower() for r in csv.DictReader(fh)}
+
+
+def canonical(key: str | None, aliases: dict[str, str]) -> str | None:
+    return aliases.get(key, key) if key else key
 
 
 def is_comparator(text: str | None) -> bool:
