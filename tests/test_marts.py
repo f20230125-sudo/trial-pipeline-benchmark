@@ -132,3 +132,14 @@ def test_headline_is_inside_the_ranges_the_plan_expected(con):
 def test_no_em_dash_in_any_exported_file():
     for p in OUT.glob("*.json"):
         assert chr(0x2014) not in p.read_text(encoding="utf-8"), p.name
+
+
+def test_the_ladder_flag_equals_the_headline_concentration(con):
+    """The first screen colours the studies that the 35.3% counts: the flag must add up to the headline's 71."""
+    h = json.loads((OUT / "headline.json").read_text(encoding="utf-8"))
+    flagged = one(con, "select count(*) from mart_msd_active where counts_toward_top_molecule")
+    assert flagged == h["concentration"]["msd_top_molecule_studies"] == 71
+    assert one(con, "select count(*) from mart_msd_active where counts_toward_top_molecule and phase_max < 2") == 0
+    rows = json.loads((OUT / "msd_active.json").read_text(encoding="utf-8"))
+    assert sum(1 for r in rows if r["counts_toward_top_molecule"]) == flagged
+    assert len(rows) == h["pipeline"]["msd_active_pipeline"]

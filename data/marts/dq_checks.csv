@@ -12,7 +12,7 @@ C10,Uniqueness,One row per study,0 duplicates,0,pass,0,The same study is found b
 C11,Uniqueness,One row per study and country,0 duplicates,0,pass,0,
 C12,Reconciliation,Studies loaded per search equal the total the API announced,44 of 44 searches match,every search equal,pass,0,"37,564 study rows over 44 searches; API data as of 2026-10-14T09:00:05 (unchanged at the end of the download)."
 C13,Reconciliation,Every distinct study fetched is in scope or quarantined with a reason,"36,612 fetched = 33,219 in scope + 3,393 quarantined",difference 0,pass,0,Nothing is dropped silently.
-C14,Reconciliation,MSD study count equals a fresh count from the API,"2,189 in the warehouse; live API not asked",equal on the same data date,info,,Run without --offline to compare against the live API.
+C14,Reconciliation,MSD study count equals a fresh count from the API,"2,189 in the warehouse vs 2,189 from the API (data date 2026-10-14)",equal on the same data date,pass,0,"Studies whose lead name contains 'Merck Sharp & Dohme', including ArQule's. "
 C15,Coverage,Active pipeline studies assigned a therapeutic area,97.0% (72 Unclassified),>= 95%,pass,72,"Text first, then MeSH, then the molecule's usual area. What no step can place stays Unclassified, never spread across other areas."
 C16,Coverage,Active pipeline studies with a molecule key,100.0%,>= 95%,pass,1,"Placebo, saline, standard of care and similar comparators are not counted as molecules."
 C17,Coverage,Merck products in Rx Market Pulse with at least one MSD study,14 of 14,reported,info,0,"All 14 families match by molecule name, MK development code or brand name."

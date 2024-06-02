@@ -48,9 +48,16 @@ group by all
 order by d.sort_order;
 
 -- Lists for the workbook and the dashboard.
+-- counts_toward_top_molecule: true exactly when the study is in the numerator of MSD's concentration figure (active
+-- pipeline, phase_max >= 2, and MSD's top molecule is among the study's molecules). The dashboard colours these.
+-- It is a different measure from merck_products (a link to Merck's products by name, code or brand, which gives 84).
 create or replace table mart_msd_active as
 select s.nct_id, s.brief_title as title, s.area, s.phase, s.phase_max, s.status, s.start_date, s.pc_date, s.pc_type,
        s.top_molecule, s.enrollment_count, s.has_gcc_site, s.is_late, s.is_overdue,
+       (s.phase_max >= 2 and exists (
+            select 1 from study_molecule m
+            where m.nct_id = s.nct_id and m.molecule = (select top_molecule from mart_concentration where grp = 'MSD')
+       )) as counts_toward_top_molecule,
        (select string_agg(distinct l.family, ', ') from study_rx_link l where l.nct_id = s.nct_id) as merck_products
 from study s
 where s.grp = 'MSD' and s.is_pipeline and s.is_active
