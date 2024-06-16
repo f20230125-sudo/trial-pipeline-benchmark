@@ -469,9 +469,29 @@ def build(path: Path = OUT) -> Path:
     return path
 
 
-def main() -> int:
+def publish_copy(path: Path = OUT) -> Path:
+    """The dashboard serves the workbook from its own public folder (Vercel builds from dashboard/ only)."""
+    import shutil
+
+    dest = S.ROOT / "dashboard" / "public" / "downloads" / path.name
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(path, dest)
+    return dest
+
+
+def main(argv: list[str] | None = None) -> int:
+    import argparse
+
+    ap = argparse.ArgumentParser(description=__doc__.split(chr(10) * 2)[0])
+    ap.add_argument("--copy", action="store_true",
+                    help="only copy the existing workbook to dashboard/public/downloads (run this after tools/recalc.ps1)")
+    args = ap.parse_args(argv)
+    if args.copy:
+        print(f"copied to {publish_copy()}")
+        return 0
     p = build()
     print(f"wrote {p} ({p.stat().st_size / 1e6:.1f} MB)")
+    print("next: powershell tools/recalc.ps1 -Path <that file> (so it carries values), then python -m tp.workbook --copy")
     return 0
 
 
