@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 import re
 import shutil
 import sys
@@ -78,8 +79,9 @@ def load_queries(path: Path = S.REF / "sponsor_queries.csv") -> list[Query]:
 def _retry_after(resp) -> float | None:
     value = resp.headers.get("Retry-After") if getattr(resp, "headers", None) else None
     try:
-        return min(float(value), MAX_WAIT) if value is not None else None
-    except ValueError:
+        seconds = float(value) if value is not None else None
+        return min(seconds, MAX_WAIT) if seconds is not None and math.isfinite(seconds) and seconds >= 0 else None
+    except (ValueError, TypeError):
         return None  # an HTTP-date form; fall back to exponential backoff
 
 
@@ -99,7 +101,9 @@ def get_with_retry(session, url: str, params: dict, *, sleep: Callable[[float], 
             if resp.status_code not in RETRY_STATUS:
                 raise FetchError(f"HTTP {resp.status_code} for {url} {params}")
             last = f"HTTP {resp.status_code}"
-            wait = _retry_after(resp) or wait
+            retry_after = _retry_after(resp)
+            if retry_after is not None:
+                wait = retry_after
         if attempt < max_tries - 1:
             sleep(wait)
     raise FetchError(f"gave up after {max_tries} tries ({last}) for {url} {params}")
@@ -120,6 +124,7 @@ def fetch_query(session, q: Query, *, raw_dir: Path = S.RAW, delay: float = DELA
     size = 0
     n = 1
     token = None
+    seen_tokens = set()
     while True:
         page_file = out / f"page_{n:04d}.json"
         if page_file.exists():
@@ -143,6 +148,9 @@ def fetch_query(session, q: Query, *, raw_dir: Path = S.RAW, delay: float = DELA
         token = page.get("nextPageToken")
         if not token:
             break
+        if token in seen_tokens:
+            raise FetchError(f"{q.slug}: repeated pagination token; refusing an endless or duplicated snapshot")
+        seen_tokens.add(token)
         n += 1
     if total is None or studies != total:
         raise CountMismatch(f"{q.slug}: read {studies} studies but the API announced {total}")
