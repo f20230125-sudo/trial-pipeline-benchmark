@@ -1,0 +1,45 @@
+group,term,param
+MSD,Merck,lead
+MSD,MSD,lead
+MSD,Schering-Plough,lead
+MSD,Themis Bioscience,lead
+Pfizer,Pfizer,lead
+Pfizer,Wyeth,lead
+Pfizer,Seagen,lead
+Pfizer,Medivation,lead
+Pfizer,Arena Pharmaceuticals,lead
+Pfizer,Global Blood Therapeutics,lead
+AstraZeneca,AstraZeneca,lead
+AstraZeneca,MedImmune,lead
+AstraZeneca,Alexion,lead
+AstraZeneca,Acerta,lead
+Novartis,Novartis,lead
+Roche,Roche,lead
+Roche,Genentech,lead
+Roche,Spark Therapeutics,lead
+BMS,Bristol,lead
+BMS,Celgene,lead
+BMS,Mirati,lead
+BMS,MyoKardia,lead
+BMS,RayzeBio,lead
+BMS,Turning Point,lead
+Lilly,Lilly,lead
+Lilly,Loxo,lead
+Novo Nordisk,Novo Nordisk,lead
+AbbVie,AbbVie,lead
+AbbVie,Allergan,lead
+AbbVie,Pharmacyclics,lead
+AbbVie,ImmunoGen,lead
+AbbVie,Cerevel,lead
+AbbVie,Stemcentrx,lead
+GSK,GlaxoSmithKline,lead
+GSK,GSK,lead
+GSK,ViiV,lead
+GSK,Tesaro,lead
+Sanofi,Sanofi,lead
+J&J,Janssen,lead
+J&J,Johnson & Johnson,lead
+J&J,Actelion,lead
+J&J,Intra-Cellular,lead
+J&J,Momenta,lead
+Ecosystem,pembrolizumab,intr
