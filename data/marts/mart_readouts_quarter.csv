@@ -1,0 +1,96 @@
+sort_order,grp,quarter,studies
+1,MSD,2026-Q4,2
+1,MSD,2027-Q1,4
+1,MSD,2027-Q2,6
+1,MSD,2027-Q3,5
+1,MSD,2027-Q4,4
+1,MSD,2028-Q1,4
+1,MSD,2028-Q2,3
+1,MSD,2028-Q3,3
+2,AbbVie,2026-Q4,3
+2,AbbVie,2027-Q1,5
+2,AbbVie,2027-Q2,3
+2,AbbVie,2027-Q3,7
+2,AbbVie,2027-Q4,2
+2,AbbVie,2028-Q1,6
+2,AbbVie,2028-Q2,2
+2,AbbVie,2028-Q3,4
+3,AstraZeneca,2026-Q4,7
+3,AstraZeneca,2027-Q1,9
+3,AstraZeneca,2027-Q2,8
+3,AstraZeneca,2027-Q3,8
+3,AstraZeneca,2027-Q4,11
+3,AstraZeneca,2028-Q1,8
+3,AstraZeneca,2028-Q2,6
+3,AstraZeneca,2028-Q3,10
+4,BMS,2026-Q4,10
+4,BMS,2027-Q1,3
+4,BMS,2027-Q2,1
+4,BMS,2027-Q3,4
+4,BMS,2027-Q4,3
+4,BMS,2028-Q1,3
+4,BMS,2028-Q2,3
+4,BMS,2028-Q3,4
+5,GSK,2026-Q4,5
+5,GSK,2027-Q1,3
+5,GSK,2027-Q2,1
+5,GSK,2027-Q3,3
+5,GSK,2027-Q4,2
+5,GSK,2028-Q1,5
+5,GSK,2028-Q2,4
+6,J&J,2026-Q4,7
+6,J&J,2027-Q1,4
+6,J&J,2027-Q2,6
+6,J&J,2027-Q3,4
+6,J&J,2027-Q4,4
+6,J&J,2028-Q1,2
+6,J&J,2028-Q2,4
+6,J&J,2028-Q3,4
+7,Lilly,2026-Q4,6
+7,Lilly,2027-Q1,1
+7,Lilly,2027-Q2,2
+7,Lilly,2027-Q3,8
+7,Lilly,2027-Q4,11
+7,Lilly,2028-Q1,8
+7,Lilly,2028-Q2,9
+7,Lilly,2028-Q3,1
+8,Novartis,2026-Q4,4
+8,Novartis,2027-Q1,7
+8,Novartis,2027-Q2,6
+8,Novartis,2027-Q3,2
+8,Novartis,2027-Q4,1
+8,Novartis,2028-Q1,5
+8,Novartis,2028-Q2,7
+8,Novartis,2028-Q3,6
+9,Novo Nordisk,2026-Q4,1
+9,Novo Nordisk,2027-Q1,3
+9,Novo Nordisk,2027-Q2,4
+9,Novo Nordisk,2027-Q3,2
+9,Novo Nordisk,2027-Q4,1
+9,Novo Nordisk,2028-Q1,2
+9,Novo Nordisk,2028-Q2,4
+9,Novo Nordisk,2028-Q3,6
+10,Pfizer,2026-Q4,8
+10,Pfizer,2027-Q1,5
+10,Pfizer,2027-Q2,3
+10,Pfizer,2027-Q3,5
+10,Pfizer,2027-Q4,4
+10,Pfizer,2028-Q1,9
+10,Pfizer,2028-Q2,3
+10,Pfizer,2028-Q3,5
+11,Roche,2026-Q4,9
+11,Roche,2027-Q1,4
+11,Roche,2027-Q2,8
+11,Roche,2027-Q3,3
+11,Roche,2027-Q4,2
+11,Roche,2028-Q1,5
+11,Roche,2028-Q2,4
+11,Roche,2028-Q3,4
+12,Sanofi,2026-Q4,5
+12,Sanofi,2027-Q1,4
+12,Sanofi,2027-Q2,5
+12,Sanofi,2027-Q3,6
+12,Sanofi,2027-Q4,3
+12,Sanofi,2028-Q1,2
+12,Sanofi,2028-Q2,4
+12,Sanofi,2028-Q3,2

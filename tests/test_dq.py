@@ -61,4 +61,4 @@ def test_writing_the_scorecard_makes_both_files(result, tmp_path, monkeypatch):
     assert len(rows) == len(checks)
     md = (tmp_path / "docs" / "data-quality-scorecard.md").read_text(encoding="utf-8")
     assert md.startswith("# Data-quality scorecard") and "From search hits to studies in scope" in md
-    assert "—" not in md
+    assert chr(0x2014) not in md

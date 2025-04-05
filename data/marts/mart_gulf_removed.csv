@@ -1,0 +1,28 @@
+sort_order,grp,iso3,country,studies
+1,MSD,SAU,Saudi Arabia,8
+1,MSD,ARE,United Arab Emirates,4
+2,AbbVie,SAU,Saudi Arabia,5
+2,AbbVie,QAT,Qatar,1
+2,AbbVie,ARE,United Arab Emirates,1
+3,AstraZeneca,SAU,Saudi Arabia,4
+3,AstraZeneca,ARE,United Arab Emirates,3
+4,BMS,SAU,Saudi Arabia,3
+4,BMS,ARE,United Arab Emirates,2
+4,BMS,QAT,Qatar,1
+5,GSK,SAU,Saudi Arabia,2
+6,J&J,SAU,Saudi Arabia,1
+7,Lilly,SAU,Saudi Arabia,5
+8,Novartis,SAU,Saudi Arabia,5
+8,Novartis,ARE,United Arab Emirates,5
+8,Novartis,KWT,Kuwait,1
+10,Pfizer,SAU,Saudi Arabia,4
+10,Pfizer,ARE,United Arab Emirates,1
+10,Pfizer,QAT,Qatar,1
+10,Pfizer,OMN,Oman,1
+11,Roche,SAU,Saudi Arabia,5
+11,Roche,QAT,Qatar,2
+11,Roche,ARE,United Arab Emirates,2
+11,Roche,OMN,Oman,1
+11,Roche,KWT,Kuwait,1
+12,Sanofi,SAU,Saudi Arabia,4
+12,Sanofi,ARE,United Arab Emirates,1

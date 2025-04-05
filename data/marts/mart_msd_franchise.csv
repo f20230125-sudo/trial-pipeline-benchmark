@@ -1,0 +1,15 @@
+family,franchise,area,spend_2025,status,core_end,last_end,studies_all,active_pipeline,active_late
+KEYTRUDA,pembrolizumab,Oncology,892483697,Biologic (not in Orange Book),,,275,84,42
+JANUVIA,sitagliptin,Diabetes & obesity,319906790,Protected,2026-11-24,2027-05-24,100,0,0
+WINREVAIR,sotatercept,Cardiovascular,230883194,Biologic (not in Orange Book),,,22,6,2
+JANUMET,sitagliptin,Diabetes & obesity,96918986,Protected,2026-11-24,2029-01-21,100,0,0
+STEGLATRO,ertugliflozin,Diabetes & obesity,85650007,Protected,2031-12-19,2031-12-19,21,0,0
+PREVYMIS,letermovir,Infectious disease (non-HIV),45646868,Protected,2031-08-30,2031-08-30,7,1,0
+WELIREG,belzutifan,Oncology,41962764,Protected,2034-09-05,2042-06-30,31,21,8
+ISENTRESS,raltegravir,HIV,36749886,Protected,2030-06-02,2032-03-30,22,0,0
+PIFELTRO,doravirine,HIV,23085620,Protected,2032-08-30,2032-08-30,24,5,4
+BELSOMRA,suvorexant,Neurology & psychiatry,22630829,Protected,2029-11-20,2033-05-29,12,1,1
+BRIDION,sugammadex,"Pain, addiction & anesthesia",21766050,Protected,2028-06-12,2028-06-12,42,0,0
+DELSTRIGO,doravirine,HIV,18425394,Protected,2032-08-30,2036-11-29,24,5,4
+DIFICID,fidaxomicin,Infectious disease (non-HIV),17708002,Protected,2027-07-31,2028-01-31,5,0,0
+ZERBAXA,ceftolozane,Infectious disease (non-HIV),7906367,Protected,2034-05-28,2036-02-14,10,0,0

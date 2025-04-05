@@ -1,0 +1,29 @@
+segment,year,kind,studies,low,high,method
+MSD,2014,actual,78.0,,,
+MSD,2015,actual,74.0,,,
+MSD,2016,actual,56.0,,,
+MSD,2017,actual,43.0,,,
+MSD,2018,actual,68.0,,,
+MSD,2019,actual,73.0,,,
+MSD,2020,actual,67.0,,,
+MSD,2021,actual,65.0,,,
+MSD,2022,actual,65.0,,,
+MSD,2023,actual,75.0,,,
+MSD,2024,actual,85.0,,,
+MSD,2025,actual,86.0,,,
+MSD,2026,forecast,86.0,75.9,96.1,naive
+MSD,2027,forecast,86.0,71.7,100.3,naive
+Median of the 11 peers,2014,actual,93.0,,,
+Median of the 11 peers,2015,actual,90.0,,,
+Median of the 11 peers,2016,actual,75.0,,,
+Median of the 11 peers,2017,actual,78.0,,,
+Median of the 11 peers,2018,actual,63.0,,,
+Median of the 11 peers,2019,actual,70.0,,,
+Median of the 11 peers,2020,actual,63.0,,,
+Median of the 11 peers,2021,actual,73.0,,,
+Median of the 11 peers,2022,actual,58.0,,,
+Median of the 11 peers,2023,actual,51.0,,,
+Median of the 11 peers,2024,actual,51.0,,,
+Median of the 11 peers,2025,actual,52.0,,,
+Median of the 11 peers,2026,forecast,52.0,44.9,59.1,naive
+Median of the 11 peers,2027,forecast,52.0,41.9,62.1,naive
