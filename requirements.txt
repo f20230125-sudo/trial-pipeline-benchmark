@@ -3,3 +3,4 @@ requests>=2.31
 numpy>=1.26
 pytest>=8
 xlsxwriter>=3.2
+openpyxl>=3.1
