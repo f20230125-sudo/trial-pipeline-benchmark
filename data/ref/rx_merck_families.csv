@@ -1,0 +1,15 @@
+family,franchise,area,spend_2025,status,core_end,substance_end,last_end,molecule_regex
+KEYTRUDA,pembrolizumab,Oncology,892483697,Biologic (not in Orange Book),,,,pembrolizumab|mk-3475|keytruda
+JANUVIA,sitagliptin,Diabetes & obesity,319906790,Protected,2026-11-24,2026-11-24,2027-05-24,sitagliptin|mk-0431|januvia|janumet
+WINREVAIR,sotatercept,Cardiovascular,230883194,Biologic (not in Orange Book),,,,sotatercept|mk-7962|ace-011|winrevair
+JANUMET,sitagliptin,Diabetes & obesity,96918986,Protected,2026-11-24,2026-11-24,2029-01-21,sitagliptin|mk-0431|januvia|janumet
+STEGLATRO,ertugliflozin,Diabetes & obesity,85650007,Protected,2031-12-19,2031-12-19,2031-12-19,ertugliflozin|mk-8835|steglatro|segluromet|steglujan
+ISENTRESS,raltegravir,HIV,36749886,Protected,2030-06-02,2030-06-02,2032-03-30,raltegravir|mk-0518|isentress
+PREVYMIS,letermovir,Infectious disease (non-HIV),45646868,Protected,2031-08-30,2029-01-18,2031-08-30,letermovir|mk-8228|aic246|prevymis
+WELIREG,belzutifan,Oncology,41962764,Protected,2034-09-05,2034-09-05,2042-06-30,belzutifan|mk-6482|pt2977|welireg
+BRIDION,sugammadex,"Pain, addiction & anesthesia",21766050,Protected,2028-06-12,2026-01-27,2028-06-12,sugammadex|mk-8616|bridion
+PIFELTRO,doravirine,HIV,23085620,Protected,2032-08-30,2032-08-30,2032-08-30,doravirine|mk-1439|pifeltro|delstrigo
+BELSOMRA,suvorexant,Neurology & psychiatry,22630829,Protected,2029-11-20,2029-11-20,2033-05-29,suvorexant|mk-4305|belsomra
+DIFICID,fidaxomicin,Infectious disease (non-HIV),17708002,Protected,2027-07-31,2027-07-31,2028-01-31,fidaxomicin|opt-80|dificid
+DELSTRIGO,doravirine,HIV,18425394,Protected,2032-08-30,2032-08-30,2036-11-29,doravirine|mk-1439|pifeltro|delstrigo
+ZERBAXA,ceftolozane,Infectious disease (non-HIV),7906367,Protected,2034-05-28,2034-05-28,2036-02-14,ceftolozane|mk-7625|zerbaxa

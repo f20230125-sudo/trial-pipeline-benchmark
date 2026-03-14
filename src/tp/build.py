@@ -26,7 +26,7 @@ from pathlib import Path
 
 import duckdb
 
-from . import dates, phases, sources as S, sponsors, stops
+from . import areas, dates, molecules, phases, sources as S, sponsors, stops
 
 SQL_DIR = S.SQL
 
@@ -53,16 +53,23 @@ def as_of() -> str:
 
 
 def load_rows(con: duckdb.DuckDBPyConnection, table: str, columns: dict[str, str], rows: list[tuple]) -> None:
-    """Bulk-load Python rows through a temporary CSV. executemany inserts one row at a time and took 5 ms a row."""
+    """Bulk-load Python rows through a temporary newline-delimited JSON file.
+
+    executemany inserts one row at a time and took 5 ms a row. A CSV file broke on condition texts that contain quotes
+    and line breaks; JSON lines carry any string safely."""
+    names = list(columns)
     with tempfile.TemporaryDirectory() as tmp:
-        path = Path(tmp) / f"{table}.csv"
-        with path.open("w", encoding="utf-8", newline="") as fh:
-            w = csv.writer(fh)
+        path = Path(tmp) / f"{table}.jsonl"
+        with path.open("w", encoding="utf-8", newline="\n") as fh:
             for r in rows:
-                w.writerow(["\\N" if v is None else v for v in r])
+                fh.write(json.dumps({k: (v.isoformat() if hasattr(v, "isoformat") else v) for k, v in zip(names, r)},
+                                    ensure_ascii=False) + "\n")
         cols = ", ".join(f"'{k}': '{v}'" for k, v in columns.items())
-        con.execute(f"create or replace table {table} as select * from read_csv('{path.as_posix()}', header=false, "
-                    f"columns={{{cols}}}, nullstr='\\N')")
+        if not rows:
+            con.execute(f"create or replace table {table} ({', '.join(f'{k} {v}' for k, v in columns.items())})")
+            return
+        con.execute(f"create or replace table {table} as select * from read_json('{path.as_posix()}', "
+                    f"format='newline_delimited', columns={{{cols}}})")
 
 
 def build_maps(con: duckdb.DuckDBPyConnection) -> None:
@@ -88,7 +95,7 @@ def build_maps(con: duckdb.DuckDBPyConnection) -> None:
                                        ).fetchall()]
     load_rows(con, "map_phase", {"phases_raw": "VARCHAR", "label": "VARCHAR", "phase_max": "INTEGER",
                                  "rank": "INTEGER", "pipeline": "BOOLEAN"},
-              [(c, p.label, p.phase_max, p.rank, str(p.pipeline).lower()) for c in codes if (p := phases.parse(c))])
+              [(c, p.label, p.phase_max, p.rank, p.pipeline) for c in codes if (p := phases.parse(c))])
     # why a study stopped
     stop_rules = stops.load_rules()
     texts = [r[0] for r in con.execute("select distinct why_stopped from stg_study where why_stopped is not null"
@@ -97,6 +104,36 @@ def build_maps(con: duckdb.DuckDBPyConnection) -> None:
               [(t, stops.theme(t, stop_rules)) for t in texts])
     print(f"  {'maps (python)':<28} {time.time() - started:5.1f}s  {len(names)} sponsor names, {len(raws)} date "
           f"strings, {len(codes)} phase codes, {len(texts)} stop texts")
+
+
+def build_enrichment_maps(con: duckdb.DuckDBPyConnection) -> None:
+    """Area and molecule maps, applied to DISTINCT strings (there are far fewer than studies)."""
+    started = time.time()
+    rules = areas.load_rules()
+    terms = [r[0] for r in con.execute(
+        "select term from stg_condition_mesh union select condition from stg_condition").fetchall() if r[0]]
+    rows = []
+    for t in terms:
+        hit = areas.area_for(t, rules)
+        if hit:
+            rows.append((t, hit[0], hit[1]))
+    load_rows(con, "map_area_term", {"term": "VARCHAR", "area": "VARCHAR", "priority": "INTEGER"}, rows)
+    load_rows(con, "dim_area", {"area": "VARCHAR", "sort_order": "INTEGER"},
+              [(a, i + 1) for i, a in enumerate(areas.AREAS)])
+    over = areas.load_overrides()
+    load_rows(con, "map_area_override", {"nct_id": "VARCHAR", "area": "VARCHAR", "reason": "VARCHAR"},
+              [(n, a, why) for n, (a, why) in over.items()])
+    raws = [r[0] for r in con.execute(
+        "select name from stg_intervention union select term from stg_intervention_mesh where kind = 'mesh'"
+    ).fetchall() if r[0]]
+    load_rows(con, "map_molecule", {"raw": "VARCHAR", "key": "VARCHAR"},
+              [(r, molecules.normalise(r) if not molecules.is_comparator(r) else None) for r in raws])
+    print(f"  {'enrichment maps (python)':<28} {time.time() - started:5.1f}s  {len(rows)} of {len(terms)} area terms "
+          f"matched, {len(raws)} intervention names")
+
+
+# Steps that are not SQL run just before the SQL file named here.
+_BEFORE = {"05b_study.sql": build_enrichment_maps}
 
 
 def stage(con: duckdb.DuckDBPyConnection) -> None:
@@ -111,6 +148,8 @@ def stage(con: duckdb.DuckDBPyConnection) -> None:
 def model(con: duckdb.DuckDBPyConnection) -> None:
     print("model")
     for name in sorted(p.name for p in SQL_DIR.glob("0[3-5]*.sql")):
+        if name in _BEFORE:
+            _BEFORE[name](con)
         _run_sql(con, name, ref_dir=S.REF.as_posix(), as_of=as_of())
 
 
