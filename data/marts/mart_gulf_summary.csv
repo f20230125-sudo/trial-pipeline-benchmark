@@ -1,0 +1,13 @@
+sort_order,grp,pipeline_studies,gcc_studies,gcc_active_studies,gcc_share_pct,removed_gcc_studies,mena_studies
+1,MSD,2146,5,4,0.23,10,233
+2,AbbVie,1203,5,4,0.42,6,173
+3,AstraZeneca,2787,31,18,1.11,7,209
+4,BMS,1675,12,7,0.72,4,180
+5,GSK,3105,9,5,0.29,2,100
+6,J&J,1872,14,6,0.75,1,185
+7,Lilly,1893,7,2,0.37,5,135
+8,Novartis,2461,45,11,1.83,10,313
+9,Novo Nordisk,940,17,5,1.81,0,122
+10,Pfizer,2974,19,6,0.64,5,143
+11,Roche,1924,27,5,1.4,11,245
+12,Sanofi,1712,19,12,1.11,5,175

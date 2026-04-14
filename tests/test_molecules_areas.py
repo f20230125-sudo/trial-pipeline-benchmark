@@ -112,3 +112,24 @@ def test_januvia_and_janumet_share_one_franchise():
     f = {r["family"]: r["franchise"] for r in rx_link.load()}
     assert f["JANUVIA"] == f["JANUMET"] == "sitagliptin"
     assert f["PIFELTRO"] == f["DELSTRIGO"] == "doravirine"
+
+
+def test_aliases_fold_brands_and_codes_into_one_molecule():
+    a = molecules.load_aliases()
+    assert molecules.canonical(molecules.normalise("KEYTRUDA®"), a) == "pembrolizumab"
+    assert molecules.canonical(molecules.normalise("MK-3475A"), a) == "pembrolizumab"
+    assert molecules.canonical("sac-tmt", a) == "sacituzumab tirumotecan"
+    assert molecules.canonical("some new drug", a) == "some new drug"
+    assert molecules.canonical(None, a) is None
+    assert all(v == v.lower() for v in a.values())
+
+
+def test_background_therapies_are_never_aliases_and_are_lower_case():
+    import csv
+
+    from tp import sources as S
+
+    with (S.REF / "background_therapies.csv").open(encoding="utf-8") as fh:
+        bg = [r["molecule"] for r in csv.DictReader(fh)]
+    assert bg and all(m == m.lower() for m in bg) and len(set(bg)) == len(bg)
+    assert not set(bg) & set(molecules.load_aliases().values())
