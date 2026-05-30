@@ -5,7 +5,7 @@
 | | Output | What it is | Status |
 |---|---|---|---|
 | 1 | **Pipeline and data-quality pipeline** | Fetch, stage, harmonise, quarantine, 25-check scorecard, marts, 248 tests | built |
-| 2 | **Excel model** | Live-formula scorecard that ranks the 12 companies and lets you change the weights | planned |
+| 2 | **Excel model** | Live-formula scorecard that ranks the 12 companies on five measures, with dropdown inputs and weights you can change, checked against an independent calculation | built, verified in Excel |
 | 3 | **Dashboard** | Eight-section report with a table view behind every chart | planned |
 | 4 | **Power BI project** | Star schema and measures generated from the same marts | planned |
 
@@ -48,8 +48,11 @@ python -m tp.build            # stage, model and marts into DuckDB (about 70 sec
 python -m tp.dq               # data-quality scorecard (add --offline to skip the live API check)
 python -m tp.forecast         # backtested forecast of trial starts
 python -m tp.export_json      # JSON for the dashboard and headline.json
-pytest                        # 248 tests: unit tests plus data tests against the built warehouse
+pytest                        # unit tests plus data tests against the built warehouse
+python -m tp.workbook         # excel/Pipeline-Benchmark-Model.xlsx
 ```
+
+To re-verify the Excel model (needs Excel on Windows): `powershell tools/excel_probe.ps1 -Path excel/Pipeline-Benchmark-Model.xlsx -Out probe.json`, then `python tools/verify_workbook.py probe.json`.
 
 The raw pages are not committed (178 MB); `data/snapshot/manifest.json` records exactly what was fetched, and the pipeline refuses a snapshot the API refreshed during the download.
 
@@ -78,6 +81,7 @@ SQL lives in [`sql/`](sql) (numbered, one purpose each); Python in [`src/tp/`](s
 
 - **248 tests.** Unit tests for the fetcher (pagination, retry with Retry-After, resume, a refresh mid-run), the sponsor rules (every alias and every trap above), dates, phases, stop themes, molecule keys and area rules. Data tests on the built warehouse: fetched studies equal in-scope plus quarantined, one row per study, Merck KGaA never in the MSD group, every country mapped, marts add back to the study table, the exported JSON matches the warehouse.
 - **25 data-quality checks** across completeness, validity, uniqueness, reconciliation, coverage, harmonisation and timeliness: 20 pass, 0 fail, 5 reported for information.
+- **The Excel model was verified by driving Excel itself.** Six input scenarios (different focus company, area, stage, status scope, window, weighting preset and data date) are evaluated by Excel's own formulas through COM, and every number on the Scorecard (counts, percentiles, scores, ranks, tiers), the area matrix and the expiring-revenue sheet is compared with a Python recalculation that shares no code with the workbook (`tools/verify_workbook.py`). The first run found two real faults: a check that pointed at the wrong column, and a rank formula that gave two companies the same rank when their scores were equal on paper but differed by 5 x 10^-17 in floating point. Both are fixed and the six scenarios now match exactly.
 - **A reconciliation against the source.** Per-search counts equal the totals the API announced, the data date is unchanged from the start to the end of the download, and the MSD count equals a fresh call to the live API.
 
 ## What this is not
@@ -92,7 +96,8 @@ sql/           01-02 staging · 03 quarantine · 04 dimensions · 05 facts · 06
 data/ref/      editable rule files (sponsors, areas, molecules, stop reasons, countries, Merck products)
 data/marts/    the small analysis tables, committed
 data/snapshot/ manifest of exactly what was fetched
+excel/         the workbook
 dashboard/     exported JSON (the dashboard itself is planned)
 docs/          data-quality scorecard, case studies (interview order)
-tests/  tools/ pytest suite; helper that builds the country list
+tests/  tools/ pytest suite; the Excel verification harness; helper that builds the country list
 ```
