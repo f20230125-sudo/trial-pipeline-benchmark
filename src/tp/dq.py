@@ -66,6 +66,25 @@ def _live_count(term: str) -> tuple[int, str] | None:
         return None
 
 
+LIVE_RECORD = S.SNAPSHOT / "live_check.json"
+
+
+def _write_live_record(manifest: dict, warehouse: int, api: int, ts: str) -> None:
+    LIVE_RECORD.write_text(json.dumps({
+        "checked_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+        "term": "Merck Sharp & Dohme (lead sponsor, full-text)",
+        "api_data_timestamp": ts, "api_count": api, "warehouse_count": warehouse,
+        "snapshot_data_timestamp": manifest["dataTimestamp_start"],
+    }, indent=2) + "\n", encoding="utf-8")
+
+
+def _read_live_record(manifest: dict) -> dict | None:
+    if not LIVE_RECORD.exists():
+        return None
+    rec = json.loads(LIVE_RECORD.read_text(encoding="utf-8"))
+    return rec if rec.get("snapshot_data_timestamp") == manifest["dataTimestamp_start"] else None
+
+
 def run(con: duckdb.DuckDBPyConnection, offline: bool = False) -> tuple[list[Check], list[dict]]:
     checks: list[Check] = []
     manifest = json.loads(S.MANIFEST.read_text(encoding="utf-8"))
@@ -152,19 +171,31 @@ def run(con: duckdb.DuckDBPyConnection, offline: bool = False) -> tuple[list[Che
                         "Nothing is dropped silently."))
     msd_names = _one(con, "select count(*) from study where lead_name ilike '%Merck Sharp & Dohme%'")[0]
     live = None if offline else _live_count("Merck Sharp & Dohme")
-    if live is None:
-        checks.append(Check("C14", "Reconciliation", "MSD study count equals a fresh count from the API",
-                            f"{msd_names:,} in the warehouse; live API not asked", "equal on the same data date", "info",
-                            None, "Run without --offline to compare against the live API."))
-    else:
+    record = _read_live_record(manifest)
+    note14 = "Studies whose lead name contains 'Merck Sharp & Dohme', including ArQule's. "
+    if live is not None and live[1] == manifest["dataTimestamp_start"]:
+        # The API still holds the data the snapshot was taken from: compare, and keep the evidence in the repository.
         total, ts = live
-        same = ts == manifest["dataTimestamp_start"]
-        status = ("pass" if total == msd_names else "fail") if same else "info"
+        status = "pass" if total == msd_names else "fail"
+        _write_live_record(manifest, msd_names, total, ts)
         checks.append(Check("C14", "Reconciliation", "MSD study count equals a fresh count from the API",
                             f"{msd_names:,} in the warehouse vs {total:,} from the API (data date {ts[:10]})",
-                            "equal on the same data date", status, abs(total - msd_names) if same else None,
-                            "Studies whose lead name contains 'Merck Sharp & Dohme', including ArQule's. "
-                            + ("" if same else "The API has refreshed since the snapshot, so the counts may differ.")))
+                            "equal on the same data date", status, abs(total - msd_names), note14))
+    elif record and record["api_data_timestamp"] == manifest["dataTimestamp_start"]:
+        # Offline, or the API has refreshed since: the API can no longer give the snapshot's own answer, so use the record
+        # written when it could (data/snapshot/live_check.json) and say so.
+        ok = record["api_count"] == record["warehouse_count"] == msd_names
+        extra = "The API has refreshed since" if live is not None else "Not asked this run"
+        checks.append(Check("C14", "Reconciliation", "MSD study count equals a fresh count from the API",
+                            f"{msd_names:,} in the warehouse vs {record['api_count']:,} from the API on {record['checked_at'][:10]} "
+                            f"(data date {record['api_data_timestamp'][:10]})", "equal on the same data date",
+                            "pass" if ok else "fail", None if ok else abs(record["api_count"] - msd_names),
+                            note14 + f"{extra}; this is the comparison recorded in data/snapshot/live_check.json when the API still "
+                            "held the snapshot's data date."))
+    else:
+        checks.append(Check("C14", "Reconciliation", "MSD study count equals a fresh count from the API",
+                            f"{msd_names:,} in the warehouse; no live comparison on this data date yet", "equal on the same data date",
+                            "info", None, "Run `python -m tp.dq` (without --offline) on the snapshot's data date to record it."))
 
     # ------------------------------------------------------------ coverage
     area_ok = _one(con, "select count(*) from study where is_pipeline and is_active and area <> 'Unclassified'")[0]
