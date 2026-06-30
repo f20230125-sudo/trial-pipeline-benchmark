@@ -268,7 +268,7 @@ def run(con: duckdb.DuckDBPyConnection, offline: bool = False) -> tuple[list[Che
     as_of = datetime.fromisoformat(manifest["dataTimestamp_start"]).date()
     age = (date.today() - as_of).days
     checks.append(Check("C24", "Timeliness", "Age of the data snapshot at build time",
-                        f"{age} days (API data as of {as_of})", "<= 7 days", "pass" if age <= 7 else "warn", None,
+                        f"{age} day{'' if age == 1 else 's'} (API data as of {as_of})", "<= 7 days", "pass" if age <= 7 else "warn", None,
                         "The snapshot is frozen on purpose so every number on the site and the CV agree."))
     stale = _one(con, f"""select count(*) from study where is_pipeline and is_active and
                          verified_date < date '{as_of.isoformat()}' - interval 12 month""")[0]

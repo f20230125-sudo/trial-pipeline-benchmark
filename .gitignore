@@ -18,3 +18,5 @@ dashboard/screenshots/
 dashboard/tsconfig.tsbuildinfo
 powerbi/**/.pbi/
 powerbi/**/*.abf
+DESIGN.md
+STATUS.md
