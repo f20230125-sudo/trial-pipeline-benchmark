@@ -20,3 +20,5 @@ powerbi/**/.pbi/
 powerbi/**/*.abf
 DESIGN.md
 STATUS.md
+.env*
+.vercel

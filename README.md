@@ -1,10 +1,12 @@
 # Trial Pipeline Benchmark
 
+**Live report: [trial-pipeline-benchmark.vercel.app](https://trial-pipeline-benchmark.vercel.app)**  |  [Excel model](excel/Pipeline-Benchmark-Model.xlsx)  |  [Data-quality scorecard](docs/data-quality-scorecard.md)  |  [Case study](docs/case-studies.md)
+
 **Where MSD's clinical-trial pipeline stands against 11 peers, built from the public ClinicalTrials.gov registry.** 36,612 studies fetched through a paged REST API, 33,219 of them led by one of 12 companies, harmonised, quality-checked and compared on pipeline size, reliance on one molecule, expiring revenue, upcoming readouts, trial starts and stops, and Gulf footprint. Built as a commercial-analytics case study, and a sibling of [Rx Market Pulse](https://github.com/f20230125-sudo/rx-market-pulse): the two share the same 17 therapeutic areas, and this one reads Merck's product list and patent dates from it.
 
 | | Output | What it is | Status |
 |---|---|---|---|
-| 1 | **Pipeline and data-quality pipeline** | Fetch, stage, harmonise, quarantine, 25-check scorecard, marts, 248 tests | built |
+| 1 | **Pipeline and data-quality pipeline** | Fetch, stage, harmonise, quarantine, 25-check scorecard, marts, 264 tests | built |
 | 2 | **Excel model** | Live-formula scorecard that ranks the 12 companies on five measures, with dropdown inputs and weights you can change, checked against an independent calculation | built, verified in Excel |
 | 3 | **Dashboard** | One-page report with a mark for each of MSD's 238 active studies, eight sections, and a table view behind every chart | built (Next.js), 40 unit and 20 browser tests |
 | 4 | **Power BI project** | Star schema and measures generated from the same marts | planned |
@@ -82,7 +84,7 @@ SQL lives in [`sql/`](sql) (numbered, one purpose each); Python in [`src/tp/`](s
 
 ## Verification
 
-- **248 tests.** Unit tests for the fetcher (pagination, retry with Retry-After, resume, a refresh mid-run), the sponsor rules (every alias and every trap above), dates, phases, stop themes, molecule keys and area rules. Data tests on the built warehouse: fetched studies equal in-scope plus quarantined, one row per study, Merck KGaA never in the MSD group, every country mapped, marts add back to the study table, the exported JSON matches the warehouse.
+- **264 tests.** Unit tests for the fetcher (pagination, retry with Retry-After, resume, a refresh mid-run), the sponsor rules (every alias and every trap above), dates, phases, stop themes, molecule keys and area rules. Data tests on the built warehouse: fetched studies equal in-scope plus quarantined, one row per study, Merck KGaA never in the MSD group, every country mapped, marts add back to the study table, the exported JSON matches the warehouse.
 - **25 data-quality checks** across completeness, validity, uniqueness, reconciliation, coverage, harmonisation and timeliness: 20 pass, 0 fail, 5 reported for information.
 - **The Excel model was verified by driving Excel itself.** Six input scenarios (different focus company, area, stage, status scope, window, weighting preset and data date) are evaluated by Excel's own formulas through COM, and every number on the Scorecard (counts, percentiles, scores, ranks, tiers), the area matrix and the expiring-revenue sheet is compared with a Python recalculation that shares no code with the workbook (`tools/verify_workbook.py`). The first run found two real faults: a check that pointed at the wrong column, and a rank formula that gave two companies the same rank when their scores were equal on paper but differed by 5 x 10^-17 in floating point. Both are fixed and the six scenarios now match exactly.
 - **The dashboard is tested as a page, not only as code.** Unit tests render the whole report and check that every heading and figure equals the data it came from, that the first screen draws 238 marks of which 71 are coloured (the studies behind the 35.3%), that no peer is ever drawn in MSD's colour, and that the design's contrast table still holds against the real CSS. Browser tests drive it in Chromium: keyboard movement through the marks, every Chart and Table switch, axe accessibility scans in light and dark on desktop and a phone (no violations), no sideways scroll from 390 down to 320 pixels with every table open, the Excel download, and the animation rules (nothing moves under reduced motion).
