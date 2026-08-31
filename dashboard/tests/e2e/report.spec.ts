@@ -112,12 +112,14 @@ test.describe("accessibility", () => {
   for (const scheme of ["light", "dark"] as const) {
     test(`axe finds no violations on the desktop page (${scheme})`, async ({ page }) => {
       await page.emulateMedia({ colorScheme: scheme });
+      if (scheme === "dark") await page.addInitScript(() => localStorage.setItem("tp-theme", "dark"));
       await page.goto("/");
       expect(await violations(page)).toEqual([]);
     });
     test(`axe finds no violations on a phone (${scheme})`, async ({ page }) => {
       await page.setViewportSize({ width: 390, height: 844 });
       await page.emulateMedia({ colorScheme: scheme });
+      if (scheme === "dark") await page.addInitScript(() => localStorage.setItem("tp-theme", "dark"));
       await page.goto("/");
       expect(await violations(page)).toEqual([]);
     });
@@ -175,4 +177,10 @@ test.describe("motion", () => {
       expect(await running(page)).toBe(0);
     });
   });
+});
+
+test("opens in light mode even when the system prefers dark", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
 });
