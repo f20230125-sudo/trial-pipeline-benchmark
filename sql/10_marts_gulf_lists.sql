@@ -56,14 +56,23 @@ from study s
 where s.grp = 'MSD' and s.is_pipeline and s.is_active
 order by s.phase_max desc, s.pc_date, s.nct_id;
 
--- One row per pipeline study since 2010 (and every active one): the data sheet of the Excel model.
+-- One row per pipeline study: the data sheet of the Excel model. Flags are 'Yes'/'No' text so that COUNTIFS in Excel can
+-- match them with a wildcard. real_start = a start that is not an estimate and not after the data date (same rule as
+-- mart_starts_year); end_year = the year the study ended or was due to (same rule as mart_termination).
 create or replace table mart_study_export as
-select s.nct_id, s.grp, s.area, s.phase, s.phase_max,
+select s.nct_id, s.grp, s.area, s.phase,
        case s.phase_max when 3 then 'Late' when 2 then 'Mid' else 'Early' end as stage,
-       s.is_active, s.status_class, s.status,
-       year(s.start_date) as start_year, s.start_type, s.pc_date, s.pc_type, s.has_gcc_site, s.top_molecule
+       case when s.is_active then 'Yes' else 'No' end as active,
+       s.status_class, s.status,
+       year(s.start_date) as start_year,
+       case when s.start_date is not null and s.start_type <> 'ESTIMATED' and s.start_date <= date '{as_of}'
+            then 'Yes' else 'No' end as real_start,
+       year(coalesce(s.completion_date, s.pc_date)) as end_year,
+       s.pc_date, s.pc_type,
+       case when s.has_gcc_site then 'Yes' else 'No' end as gcc,
+       s.top_molecule
 from study s
-where s.is_pipeline and (s.is_active or year(s.start_date) >= 2010)
+where s.is_pipeline
 order by s.grp, s.nct_id;
 
 copy mart_gulf_summary to '{marts_dir}/mart_gulf_summary.csv' (header, delimiter ',');
