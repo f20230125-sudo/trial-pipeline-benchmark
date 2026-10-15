@@ -1,0 +1,37 @@
+order,pattern,group,kind,note
+10,KGaA|EMD Serono|SpringWorks|Merck Healthcare|Merck Medication Familiale|Merck Millipore,Merck KGaA and affiliates (not MSD),excluded,"Same name, different company: Merck KGaA of Darmstadt owns the Merck name outside the US and Canada"
+11,Dupont Merck,Historic joint venture (not MSD),excluded,"DuPont Merck Pharmaceutical Co. (1991-98), a 1990s joint venture that was never part of MSD"
+12,Wellcome Trust Hilleman,Joint venture (not wholly MSD),excluded,"MSD and Wellcome Trust vaccine joint venture in India, counted for neither"
+13,\bOrganon\b,Spun off (Organon),excluded,"Organon left Merck in 2021; spin-offs are not folded back"
+14,\bAlcon\b|Novartis Vaccines|\bSandoz\b|Opella|Kenvue|Haleon,Divested or spun off,excluded,"Alcon (2019), Novartis Vaccines (sold 2015), Sandoz (2023), Opella (Sanofi consumer health, 2025), Kenvue and Haleon"
+15,Johnson & Johnson Consumer|McNeil Consumer|McNEIL-PPC|Consumer Products Company Division,Divested or spun off,excluded,"J&J consumer health became Kenvue in 2023"
+16,Anne Roche|Kimberley Roche|SEBASTIAN ROCHE|William Janssen|Hella Janssen,Individual (not a company),excluded,"People whose surname matches the company search word"
+17,^University|University of|University Hospital|Universit[aä]t|\bNHS\b|Hospital|Foundation|Rochester,"Academic, hospital or charity",excluded,"Returned by the full-text search because a word matches"
+18,^Turning Point$|Apitope Technology,Other company with the same word,excluded,"Not Turning Point Therapeutics (BMS) and not a Merck/Bristol company"
+100,^Merck Sharp & Dohme|^MSD\b|^Merck & Co,MSD,parent,"Merck & Co. is MSD outside the US and Canada"
+101,Schering-Plough|Themis Bioscience,MSD,acquired,"Schering-Plough (merged 2009) and Themis (bought 2020)"
+102,subsidiary of Merck|ArQule,MSD,acquired,"Cubist, Trius, Optimer, Acceleron, Verona and the other firms named 'a subsidiary of Merck & Co.'"
+110,^Pfizer,Pfizer,parent,
+111,Wyeth|Seagen|Hospira|Array Biopharma|Arena Pharmaceuticals|Medivation|Global Blood Therapeutics|Metsera,Pfizer,acquired,"Companies named in their own sponsor name as owned by Pfizer, or bought by it"
+120,^AstraZeneca,AstraZeneca,parent,
+121,MedImmune|Alexion|Acerta,AstraZeneca,acquired,
+130,^Novartis,Novartis,parent,"Alcon and Novartis Vaccines are excluded by rule 14, which runs first"
+131,Corthera|a Novartis company|Novartis group,Novartis,acquired,
+140,^Roche|Hoffmann-La Roche,Roche,parent,
+141,Genentech|Spark Therapeutics,Roche,acquired,"Genentech became wholly owned in 2009"
+150,Celgene|Juno Therapeutics|Mirati|Karuna|MyoKardia|RayzeBio|Turning Point Therapeutics|Adnexus,BMS,acquired,
+151,Bristol[- ]Myers Squibb,BMS,parent,
+160,Loxo|subsidiary of Eli Lilly,Lilly,acquired,
+161,Eli Lilly,Lilly,parent,
+170,Dicerna|a Novo Nordisk company,Novo Nordisk,acquired,
+171,^Novo Nordisk,Novo Nordisk,parent,
+180,Allergan,AbbVie,acquired,"Bought 2020; includes the firms Allergan owned (Naurex, Durata, Chase, Vitae)"
+181,Pharmacyclics|ImmunoGen|Cerevel|Stemcentrx,AbbVie,acquired,
+182,AbbVie,AbbVie,parent,"Includes studies still listed under the prior sponsor Abbott"
+190,GlaxoSmithKline|^GSK,GSK,parent,
+191,ViiV|Tesaro|Human Genome Sciences|Sirtris|Stiefel|Sierra Oncology|Bellus Health|RAPT Therapeutics|IDRX|a GSK Company|GSK plc group|subsidiary of GSK,GSK,acquired,"ViiV is a majority-owned (about 78%) joint venture that GSK consolidates"
+200,^Sanofi,Sanofi,parent,"Includes Sanofi Pasteur, Sanofi's vaccine division"
+201,Genzyme|Ablynx|Bioverativ|Kadmon|Principia|Provention|Synthorx|a Sanofi Company,Sanofi,acquired,
+210,Actelion|Intra-Cellular|Momenta,J&J,acquired,
+211,Janssen|Johnson & Johnson,J&J,parent,"Janssen is J&J's pharmaceutical arm; J&J devices and vision care stay here and drop out later because they are not drug studies"
+999,.*,Other sponsor,excluded,"The full-text search returned it but it belongs to none of the twelve groups"
