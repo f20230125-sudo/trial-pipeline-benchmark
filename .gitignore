@@ -1,0 +1,20 @@
+# Raw pages and the built warehouse are rebuilt from the public API; the snapshot manifest, marts and reference files are committed.
+data/raw/
+data/warehouse/
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
+node_modules/
+.next/
+out/
+*.log
+*.part
+~$*.xlsx
+
+test-results/
+playwright-report/
+dashboard/screenshots/
+dashboard/tsconfig.tsbuildinfo
+powerbi/**/.pbi/
+powerbi/**/*.abf
