@@ -1,0 +1,10 @@
+order,theme,pattern
+10,Not stated,"^\s*$|\bsee\b.{0,60}description|\bsee (the )?(termination|stop)"
+20,COVID-19,"covid|sars-?cov|pandemic|coronavirus"
+30,Safety,"safety|adverse|toxic|risk profile|benefit[- /]*risk|risk[- /]*benefit|hepatotox|mortality"
+40,Efficacy or futility,"efficacy|futil|clinical benefit|lack of (benefit|activity|effect|response)|did not (meet|demonstrate|show)|failed to|primary endpoint|not (likely|expected) to (meet|succeed)|insufficient (activity|response)|does not support|no (benefit|improvement)"
+45,Business or strategic,"cancel\w*.{0,30}(before|prior to)|(before|prior to) (the )?(any )?(enrol|recruit)"
+50,Enrolment,"enrol|recruit|accrual|accrue|patient numbers|sample size|number of (patients|participants|subjects)|low interest"
+60,"Supply, regulatory or operational","supply|manufactur|logistic|availabilit|clinical hold|regulat|health authorit|investigator|site closure|sites? (were|was) closed|protocol|operational|feasib|contract|vendor|device|import|licen[cs]e|ethic|approval"
+70,Business or strategic,"business|strateg|sponsor|company|portfolio|priorit|program|development|commercial|rights|reorgani|funding|merger|acquisition|decision|cancel|discontinu|\bpartner"
+99,Other,".*"
