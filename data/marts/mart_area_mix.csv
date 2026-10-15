@@ -1,0 +1,205 @@
+sort_order,grp,area,area_order,studies,share_pct
+1,MSD,Neurology & psychiatry,1,2,0.84
+1,MSD,Immunology & inflammation,2,13,5.46
+1,MSD,Diabetes & obesity,3,0,0.0
+1,MSD,Oncology,4,159,66.81
+1,MSD,Respiratory & allergy,5,1,0.42
+1,MSD,Rare & genetic disease,6,1,0.42
+1,MSD,HIV,7,15,6.3
+1,MSD,Cardiovascular,8,17,7.14
+1,MSD,Hematology,9,0,0.0
+1,MSD,"Pain, addiction & anesthesia",10,1,0.42
+1,MSD,Infectious disease (non-HIV),11,16,6.72
+1,MSD,Endocrine & women's health,12,0,0.0
+1,MSD,Gastroenterology,13,1,0.42
+1,MSD,Unclassified,14,9,3.78
+1,MSD,Eye & skin,15,2,0.84
+1,MSD,Urology & renal,16,1,0.42
+1,MSD,"Other (vitamins, fluids, diagnostics)",17,0,0.0
+2,AbbVie,Neurology & psychiatry,1,18,10.11
+2,AbbVie,Immunology & inflammation,2,40,22.47
+2,AbbVie,Diabetes & obesity,3,4,2.25
+2,AbbVie,Oncology,4,83,46.63
+2,AbbVie,Respiratory & allergy,5,1,0.56
+2,AbbVie,Rare & genetic disease,6,2,1.12
+2,AbbVie,HIV,7,0,0.0
+2,AbbVie,Cardiovascular,8,1,0.56
+2,AbbVie,Hematology,9,0,0.0
+2,AbbVie,"Pain, addiction & anesthesia",10,1,0.56
+2,AbbVie,Infectious disease (non-HIV),11,0,0.0
+2,AbbVie,Endocrine & women's health,12,2,1.12
+2,AbbVie,Gastroenterology,13,1,0.56
+2,AbbVie,Unclassified,14,13,7.3
+2,AbbVie,Eye & skin,15,12,6.74
+2,AbbVie,Urology & renal,16,0,0.0
+2,AbbVie,"Other (vitamins, fluids, diagnostics)",17,0,0.0
+3,AstraZeneca,Neurology & psychiatry,1,2,0.52
+3,AstraZeneca,Immunology & inflammation,2,33,8.53
+3,AstraZeneca,Diabetes & obesity,3,17,4.39
+3,AstraZeneca,Oncology,4,254,65.63
+3,AstraZeneca,Respiratory & allergy,5,18,4.65
+3,AstraZeneca,Rare & genetic disease,6,6,1.55
+3,AstraZeneca,HIV,7,0,0.0
+3,AstraZeneca,Cardiovascular,8,21,5.43
+3,AstraZeneca,Hematology,9,3,0.78
+3,AstraZeneca,"Pain, addiction & anesthesia",10,0,0.0
+3,AstraZeneca,Infectious disease (non-HIV),11,8,2.07
+3,AstraZeneca,Endocrine & women's health,12,2,0.52
+3,AstraZeneca,Gastroenterology,13,4,1.03
+3,AstraZeneca,Unclassified,14,7,1.81
+3,AstraZeneca,Eye & skin,15,0,0.0
+3,AstraZeneca,Urology & renal,16,12,3.1
+3,AstraZeneca,"Other (vitamins, fluids, diagnostics)",17,0,0.0
+4,BMS,Neurology & psychiatry,1,29,16.57
+4,BMS,Immunology & inflammation,2,21,12.0
+4,BMS,Diabetes & obesity,3,0,0.0
+4,BMS,Oncology,4,103,58.86
+4,BMS,Respiratory & allergy,5,3,1.71
+4,BMS,Rare & genetic disease,6,0,0.0
+4,BMS,HIV,7,0,0.0
+4,BMS,Cardiovascular,8,2,1.14
+4,BMS,Hematology,9,5,2.86
+4,BMS,"Pain, addiction & anesthesia",10,0,0.0
+4,BMS,Infectious disease (non-HIV),11,0,0.0
+4,BMS,Endocrine & women's health,12,0,0.0
+4,BMS,Gastroenterology,13,2,1.14
+4,BMS,Unclassified,14,8,4.57
+4,BMS,Eye & skin,15,0,0.0
+4,BMS,Urology & renal,16,2,1.14
+4,BMS,"Other (vitamins, fluids, diagnostics)",17,0,0.0
+5,GSK,Neurology & psychiatry,1,1,0.52
+5,GSK,Immunology & inflammation,2,10,5.24
+5,GSK,Diabetes & obesity,3,0,0.0
+5,GSK,Oncology,4,76,39.79
+5,GSK,Respiratory & allergy,5,24,12.57
+5,GSK,Rare & genetic disease,6,1,0.52
+5,GSK,HIV,7,26,13.61
+5,GSK,Cardiovascular,8,1,0.52
+5,GSK,Hematology,9,0,0.0
+5,GSK,"Pain, addiction & anesthesia",10,7,3.66
+5,GSK,Infectious disease (non-HIV),11,37,19.37
+5,GSK,Endocrine & women's health,12,0,0.0
+5,GSK,Gastroenterology,13,5,2.62
+5,GSK,Unclassified,14,0,0.0
+5,GSK,Eye & skin,15,1,0.52
+5,GSK,Urology & renal,16,2,1.05
+5,GSK,"Other (vitamins, fluids, diagnostics)",17,0,0.0
+6,J&J,Neurology & psychiatry,1,20,10.93
+6,J&J,Immunology & inflammation,2,37,20.22
+6,J&J,Diabetes & obesity,3,0,0.0
+6,J&J,Oncology,4,113,61.75
+6,J&J,Respiratory & allergy,5,1,0.55
+6,J&J,Rare & genetic disease,6,1,0.55
+6,J&J,HIV,7,1,0.55
+6,J&J,Cardiovascular,8,6,3.28
+6,J&J,Hematology,9,3,1.64
+6,J&J,"Pain, addiction & anesthesia",10,0,0.0
+6,J&J,Infectious disease (non-HIV),11,0,0.0
+6,J&J,Endocrine & women's health,12,0,0.0
+6,J&J,Gastroenterology,13,0,0.0
+6,J&J,Unclassified,14,0,0.0
+6,J&J,Eye & skin,15,1,0.55
+6,J&J,Urology & renal,16,0,0.0
+6,J&J,"Other (vitamins, fluids, diagnostics)",17,0,0.0
+7,Lilly,Neurology & psychiatry,1,25,11.42
+7,Lilly,Immunology & inflammation,2,22,10.05
+7,Lilly,Diabetes & obesity,3,57,26.03
+7,Lilly,Oncology,4,68,31.05
+7,Lilly,Respiratory & allergy,5,4,1.83
+7,Lilly,Rare & genetic disease,6,0,0.0
+7,Lilly,HIV,7,0,0.0
+7,Lilly,Cardiovascular,8,10,4.57
+7,Lilly,Hematology,9,1,0.46
+7,Lilly,"Pain, addiction & anesthesia",10,11,5.02
+7,Lilly,Infectious disease (non-HIV),11,1,0.46
+7,Lilly,Endocrine & women's health,12,0,0.0
+7,Lilly,Gastroenterology,13,4,1.83
+7,Lilly,Unclassified,14,12,5.48
+7,Lilly,Eye & skin,15,2,0.91
+7,Lilly,Urology & renal,16,2,0.91
+7,Lilly,"Other (vitamins, fluids, diagnostics)",17,0,0.0
+8,Novartis,Neurology & psychiatry,1,19,8.23
+8,Novartis,Immunology & inflammation,2,42,18.18
+8,Novartis,Diabetes & obesity,3,0,0.0
+8,Novartis,Oncology,4,91,39.39
+8,Novartis,Respiratory & allergy,5,5,2.16
+8,Novartis,Rare & genetic disease,6,2,0.87
+8,Novartis,HIV,7,0,0.0
+8,Novartis,Cardiovascular,8,23,9.96
+8,Novartis,Hematology,9,14,6.06
+8,Novartis,"Pain, addiction & anesthesia",10,1,0.43
+8,Novartis,Infectious disease (non-HIV),11,5,2.16
+8,Novartis,Endocrine & women's health,12,3,1.3
+8,Novartis,Gastroenterology,13,1,0.43
+8,Novartis,Unclassified,14,2,0.87
+8,Novartis,Eye & skin,15,7,3.03
+8,Novartis,Urology & renal,16,15,6.49
+8,Novartis,"Other (vitamins, fluids, diagnostics)",17,1,0.43
+9,Novo Nordisk,Neurology & psychiatry,1,0,0.0
+9,Novo Nordisk,Immunology & inflammation,2,0,0.0
+9,Novo Nordisk,Diabetes & obesity,3,64,65.98
+9,Novo Nordisk,Oncology,4,1,1.03
+9,Novo Nordisk,Respiratory & allergy,5,0,0.0
+9,Novo Nordisk,Rare & genetic disease,6,0,0.0
+9,Novo Nordisk,HIV,7,0,0.0
+9,Novo Nordisk,Cardiovascular,8,14,14.43
+9,Novo Nordisk,Hematology,9,8,8.25
+9,Novo Nordisk,"Pain, addiction & anesthesia",10,1,1.03
+9,Novo Nordisk,Infectious disease (non-HIV),11,0,0.0
+9,Novo Nordisk,Endocrine & women's health,12,1,1.03
+9,Novo Nordisk,Gastroenterology,13,2,2.06
+9,Novo Nordisk,Unclassified,14,2,2.06
+9,Novo Nordisk,Eye & skin,15,0,0.0
+9,Novo Nordisk,Urology & renal,16,4,4.12
+9,Novo Nordisk,"Other (vitamins, fluids, diagnostics)",17,0,0.0
+10,Pfizer,Neurology & psychiatry,1,9,5.08
+10,Pfizer,Immunology & inflammation,2,20,11.3
+10,Pfizer,Diabetes & obesity,3,16,9.04
+10,Pfizer,Oncology,4,78,44.07
+10,Pfizer,Respiratory & allergy,5,6,3.39
+10,Pfizer,Rare & genetic disease,6,1,0.56
+10,Pfizer,HIV,7,0,0.0
+10,Pfizer,Cardiovascular,8,2,1.13
+10,Pfizer,Hematology,9,7,3.95
+10,Pfizer,"Pain, addiction & anesthesia",10,0,0.0
+10,Pfizer,Infectious disease (non-HIV),11,23,12.99
+10,Pfizer,Endocrine & women's health,12,0,0.0
+10,Pfizer,Gastroenterology,13,2,1.13
+10,Pfizer,Unclassified,14,10,5.65
+10,Pfizer,Eye & skin,15,2,1.13
+10,Pfizer,Urology & renal,16,1,0.56
+10,Pfizer,"Other (vitamins, fluids, diagnostics)",17,0,0.0
+11,Roche,Neurology & psychiatry,1,35,15.91
+11,Roche,Immunology & inflammation,2,23,10.45
+11,Roche,Diabetes & obesity,3,14,6.36
+11,Roche,Oncology,4,103,46.82
+11,Roche,Respiratory & allergy,5,3,1.36
+11,Roche,Rare & genetic disease,6,6,2.73
+11,Roche,HIV,7,0,0.0
+11,Roche,Cardiovascular,8,2,0.91
+11,Roche,Hematology,9,12,5.45
+11,Roche,"Pain, addiction & anesthesia",10,0,0.0
+11,Roche,Infectious disease (non-HIV),11,2,0.91
+11,Roche,Endocrine & women's health,12,0,0.0
+11,Roche,Gastroenterology,13,1,0.45
+11,Roche,Unclassified,14,4,1.82
+11,Roche,Eye & skin,15,12,5.45
+11,Roche,Urology & renal,16,3,1.36
+11,Roche,"Other (vitamins, fluids, diagnostics)",17,0,0.0
+12,Sanofi,Neurology & psychiatry,1,9,7.5
+12,Sanofi,Immunology & inflammation,2,24,20.0
+12,Sanofi,Diabetes & obesity,3,4,3.33
+12,Sanofi,Oncology,4,11,9.17
+12,Sanofi,Respiratory & allergy,5,15,12.5
+12,Sanofi,Rare & genetic disease,6,10,8.33
+12,Sanofi,HIV,7,0,0.0
+12,Sanofi,Cardiovascular,8,0,0.0
+12,Sanofi,Hematology,9,9,7.5
+12,Sanofi,"Pain, addiction & anesthesia",10,0,0.0
+12,Sanofi,Infectious disease (non-HIV),11,20,16.67
+12,Sanofi,Endocrine & women's health,12,0,0.0
+12,Sanofi,Gastroenterology,13,5,4.17
+12,Sanofi,Unclassified,14,5,4.17
+12,Sanofi,Eye & skin,15,6,5.0
+12,Sanofi,Urology & renal,16,2,1.67
+12,Sanofi,"Other (vitamins, fluids, diagnostics)",17,0,0.0

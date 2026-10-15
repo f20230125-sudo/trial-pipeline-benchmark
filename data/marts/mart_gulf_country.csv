@@ -1,0 +1,37 @@
+sort_order,grp,iso3,country,studies,active_studies,sites
+1,MSD,SAU,Saudi Arabia,4,3,13
+1,MSD,ARE,United Arab Emirates,2,1,8
+2,AbbVie,SAU,Saudi Arabia,5,4,17
+2,AbbVie,ARE,United Arab Emirates,2,2,5
+3,AstraZeneca,SAU,Saudi Arabia,24,15,102
+3,AstraZeneca,ARE,United Arab Emirates,7,4,17
+3,AstraZeneca,KWT,Kuwait,1,0,1
+3,AstraZeneca,QAT,Qatar,1,1,1
+4,BMS,SAU,Saudi Arabia,9,6,27
+4,BMS,ARE,United Arab Emirates,3,2,7
+4,BMS,QAT,Qatar,1,0,1
+5,GSK,SAU,Saudi Arabia,7,3,8
+5,GSK,ARE,United Arab Emirates,3,3,9
+6,J&J,SAU,Saudi Arabia,12,6,23
+6,J&J,ARE,United Arab Emirates,2,0,4
+7,Lilly,SAU,Saudi Arabia,7,2,20
+7,Lilly,ARE,United Arab Emirates,2,1,8
+7,Lilly,OMN,Oman,1,0,1
+8,Novartis,SAU,Saudi Arabia,36,9,55
+8,Novartis,OMN,Oman,12,2,12
+8,Novartis,ARE,United Arab Emirates,6,2,8
+8,Novartis,KWT,Kuwait,1,0,1
+9,Novo Nordisk,ARE,United Arab Emirates,9,1,27
+9,Novo Nordisk,SAU,Saudi Arabia,7,4,21
+9,Novo Nordisk,OMN,Oman,3,2,4
+10,Pfizer,SAU,Saudi Arabia,15,5,23
+10,Pfizer,OMN,Oman,9,1,9
+10,Pfizer,ARE,United Arab Emirates,1,0,1
+11,Roche,SAU,Saudi Arabia,18,2,39
+11,Roche,ARE,United Arab Emirates,9,3,14
+11,Roche,KWT,Kuwait,3,0,3
+11,Roche,OMN,Oman,3,2,3
+11,Roche,QAT,Qatar,1,0,1
+12,Sanofi,SAU,Saudi Arabia,14,10,28
+12,Sanofi,ARE,United Arab Emirates,7,4,16
+12,Sanofi,OMN,Oman,1,1,1

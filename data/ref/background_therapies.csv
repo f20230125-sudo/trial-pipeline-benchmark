@@ -1,0 +1,33 @@
+molecule,reason
+paclitaxel,chemotherapy backbone
+nab-paclitaxel,chemotherapy backbone
+130-nm albumin-bound paclitaxel,chemotherapy backbone
+carboplatin,chemotherapy backbone
+cisplatin,chemotherapy backbone
+oxaliplatin,chemotherapy backbone
+pemetrexed,chemotherapy backbone
+gemcitabine,chemotherapy backbone
+docetaxel,chemotherapy backbone
+fluorouracil,chemotherapy backbone
+capecitabine,chemotherapy backbone
+cyclophosphamide,chemotherapy backbone
+doxorubicin,chemotherapy backbone
+etoposide,chemotherapy backbone
+irinotecan,chemotherapy backbone
+leucovorin,chemotherapy backbone
+vincristine,chemotherapy backbone
+cytarabine,chemotherapy backbone
+dexamethasone,steroid used as a combination partner
+prednisone,steroid used as a combination partner
+prednisolone,steroid used as a combination partner
+methylprednisolone,steroid used as a combination partner
+hydrocortisone,steroid used as a combination partner
+fulvestrant,hormone therapy backbone
+letrozole,hormone therapy backbone
+anastrozole,hormone therapy backbone
+exemestane,hormone therapy backbone
+tamoxifen,hormone therapy backbone
+acetaminophen,generic comparator or rescue drug
+paracetamol,generic comparator or rescue drug
+ibuprofen,generic comparator or rescue drug
+metformin,generic comparator or rescue drug

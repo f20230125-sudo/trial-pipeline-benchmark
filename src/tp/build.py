@@ -31,9 +31,10 @@ from . import areas, dates, molecules, phases, sources as S, sponsors, stops
 SQL_DIR = S.SQL
 
 
-def connect(path: Path = S.WAREHOUSE) -> duckdb.DuckDBPyConnection:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    con = duckdb.connect(str(path))
+def connect(path: Path = S.WAREHOUSE, read_only: bool = False) -> duckdb.DuckDBPyConnection:
+    if not read_only:
+        path.parent.mkdir(parents=True, exist_ok=True)
+    con = duckdb.connect(str(path), read_only=read_only)
     con.execute("set threads=4")
     return con
 
@@ -126,8 +127,10 @@ def build_enrichment_maps(con: duckdb.DuckDBPyConnection) -> None:
     raws = [r[0] for r in con.execute(
         "select name from stg_intervention union select term from stg_intervention_mesh where kind = 'mesh'"
     ).fetchall() if r[0]]
+    aliases = molecules.load_aliases()
     load_rows(con, "map_molecule", {"raw": "VARCHAR", "key": "VARCHAR"},
-              [(r, molecules.normalise(r) if not molecules.is_comparator(r) else None) for r in raws])
+              [(r, molecules.canonical(molecules.normalise(r), aliases) if not molecules.is_comparator(r) else None)
+               for r in raws])
     print(f"  {'enrichment maps (python)':<28} {time.time() - started:5.1f}s  {len(rows)} of {len(terms)} area terms "
           f"matched, {len(raws)} intervention names")
 

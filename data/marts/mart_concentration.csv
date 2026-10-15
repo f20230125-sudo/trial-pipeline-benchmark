@@ -1,0 +1,13 @@
+sort_order,grp,top_molecule,top_studies,studies_p23,share_pct,concentration_rank
+1,MSD,pembrolizumab,71,201,35.3,1
+2,AbbVie,upadacitinib,17,125,13.6,6
+3,AstraZeneca,durvalumab,63,324,19.4,3
+4,BMS,nivolumab,19,138,13.8,5
+5,GSK,dostarlimab,19,141,13.5,7
+6,J&J,amivantamab,17,136,12.5,8
+7,Lilly,orforglipron,17,148,11.5,9
+8,Novartis,remibrutinib,21,189,11.1,10
+9,Novo Nordisk,semaglutide,15,57,26.3,2
+10,Pfizer,pf-08634404,11,135,8.1,11
+11,Roche,atezolizumab,24,171,14.0,4
+12,Sanofi,isatuximab,7,109,6.4,12
