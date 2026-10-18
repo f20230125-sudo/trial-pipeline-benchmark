@@ -1,0 +1,51 @@
+name: Verify trial pipeline and dashboard
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Run source-checkout tests and record warehouse-dependent skips
+        run: python -m pytest -q -rs --junitxml=test-results/pipeline.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pipeline-test-results
+          path: test-results/
+  dashboard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: dashboard
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: dashboard/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run e2e
+        env:
+          CI: '1'
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: dashboard-failure-traces
+          path: dashboard/test-results/

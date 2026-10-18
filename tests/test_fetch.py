@@ -111,6 +111,28 @@ def test_count_mismatch_raises(tmp_path):
         fetch.fetch_query(s, Q, raw_dir=tmp_path, sleep=lambda _: None)
 
 
+def test_repeated_page_token_stops_before_fetching_duplicate_pages(tmp_path):
+    s = FakeSession([page(1, 'repeat', total=3), page(1, 'repeat')])
+    with pytest.raises(fetch.FetchError, match='repeated pagination token'):
+        fetch.fetch_query(s, Q, raw_dir=tmp_path, sleep=lambda _: None)
+    assert len(study_calls(s)) == 2
+
+
+@pytest.mark.parametrize('header', ['-1', 'NaN', 'Infinity'])
+def test_invalid_retry_after_uses_finite_backoff(header):
+    waits = []
+    s = FakeSession([Resp(429, headers={'Retry-After': header}), page(1)])
+    fetch.get_with_retry(s, S.STUDIES_URL, {}, sleep=waits.append)
+    assert waits == [1.0]
+
+
+def test_zero_retry_after_is_respected():
+    waits = []
+    s = FakeSession([Resp(429, headers={'Retry-After': '0'}), page(1)])
+    fetch.get_with_retry(s, S.STUDIES_URL, {}, sleep=waits.append)
+    assert waits == [0.0]
+
+
 def test_bytes_are_saved_as_received_and_read_as_utf8(tmp_path):
     p = page(1, total=1, text="Keytruda® Türkiye ")
     s = FakeSession([p])
